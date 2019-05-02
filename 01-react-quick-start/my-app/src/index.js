@@ -13,4 +13,7 @@ import React from 'react'; // 加载react这个库,识别react的语法(例如�
 import ReactDOM from 'react-dom'; // ReactDom可以让一个组件挂载到页面的一个节点上
 import App from './App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const element = <App />;
+const container = document.getElementById('root');
+
+ReactDOM.render(element, container);
