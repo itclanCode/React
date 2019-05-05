@@ -8,6 +8,7 @@
  *
  * */
 import React from 'react';
+import TodoItem from './TodoItem';
 class TodoList extends React.Component {
     constructor(props){
         super(props);
@@ -26,7 +27,7 @@ class TodoList extends React.Component {
     handleInputChange(e) {
         this.setState({
             inputValue: e.target.value
-        });
+        })
     }
     handleItemDelete(index) {
         const list = [...this.state.list];
@@ -35,6 +36,8 @@ class TodoList extends React.Component {
             list: list
         })
     }
+    // 父组件通过属性的形式向子组件传递参数
+    // 子组件通过props接收父组件传递过来的参数
     render() {
         return (
             <div>
@@ -46,7 +49,8 @@ class TodoList extends React.Component {
                     <ul>
                         {
                             this.state.list.map((item, index) => {
-                                return <li key={index} onClick={this.handleItemDelete.bind(this)}>{item}</li>
+                                return <TodoItem content={item} key={index} />
+                                // return <li key={index} onClick={this.handleItemDelete.bind(this)}>{item}</li>
                             })
                         }
                     </ul>
