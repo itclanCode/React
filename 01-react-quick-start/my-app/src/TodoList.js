@@ -12,20 +12,27 @@ class TodoList extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            list: []
+            list: [],
+            inputValue: ''
         }
     }
     handleBtnClick() {
         // 这里的this其实是button按钮,在react中不要直接的去更改state的数据,应当使用this.setState的语法
         this.setState({
-           list: [ ...this.state.list, 'hello world']
+            list: [ ...this.state.list, this.state.inputValue],
+            inputValue: ''
+        });
+    }
+    handleInputChange(e) {
+        this.setState({
+            inputValue: e.target.value
         });
     }
     render() {
         return (
             <div>
                 <div>
-                    <input />
+                    <input  value={this.state.inputValue} onChange={this.handleInputChange.bind(this)} />
                     <button onClick={this.handleBtnClick.bind(this)}>add</button>
                 </div>
                 <div>
