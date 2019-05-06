@@ -26,13 +26,20 @@ class TodoItem extends React.Component {
     *
     *  来进行向父组件传值操作的
     * */
+    constructor(props) {
+        super(props);
+        this.handleDelete = this.handleDelete.bind(this);
+    }
     handleDelete() {
-        this.props.delete(this.props.index);
+        // Es6中的解构赋值
+        const {deleteItem,index} = this.props;
+        deleteItem(index);
     }
     render() {
+        const {content} = this.props;
         return (
-            <div onClick={this.handleDelete.bind(this)}>
-                {this.props.content}
+            <div onClick={this.handleDelete}>
+                {content}
             </div>
         )
     }
