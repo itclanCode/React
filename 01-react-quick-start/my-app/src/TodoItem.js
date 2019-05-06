@@ -33,7 +33,7 @@ class TodoItem extends React.Component {
     handleDelete() {
         // Es6中的解构赋值
         const {deleteItem,index} = this.props;
-        deleteItem(index);ma
+        deleteItem(index);
     }
     render() {
         const {content} = this.props;
