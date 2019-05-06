@@ -16,6 +16,10 @@ class TodoList extends React.Component {
             list: [],
             inputValue: ''
         }
+        // 性能代码优化,对于this绑定的优化
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleBtnClick =  this.handleBtnClick.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
     handleBtnClick() {
         // 这里的this其实是button按钮,在react中不要直接的去更改state的数据,应当使用this.setState的语法
@@ -43,24 +47,35 @@ class TodoList extends React.Component {
             list: list
         })
     }
+    getTodoList () {
+        return (
+            <ul>
+                {
+                    this.state.list.map((item, index) => {
+                        return(
+                            <TodoItem deleteItem={this.handleDelete}
+                                      content={item}
+                                      key={index}
+                                      index={index}
+                            />
+                        )
+                        // return <li key={index} onClick={this.handleItemDelete.bind(this)}>{item}</li>
+                    })
+                }
+            </ul>
+        )
+    }
     // 父组件通过属性的形式向子组件传递参数
     // 子组件通过props接收父组件传递过来的参数
     render() {
         return (
             <div>
                 <div>
-                    <input  value={this.state.inputValue} onChange={this.handleInputChange.bind(this)} />
-                    <button onClick={this.handleBtnClick.bind(this)}>add</button>
+                    <input  value={this.state.inputValue} onChange={this.handleInputChange} />
+                    <button onClick={this.handleBtnClick}>add</button>
                 </div>
                 <div>
-                    <ul>
-                        {
-                            this.state.list.map((item, index) => {
-                                return <TodoItem delete={this.handleDelete.bind(this)} content={item} key={index} index={index}/>
-                                // return <li key={index} onClick={this.handleItemDelete.bind(this)}>{item}</li>
-                            })
-                        }
-                    </ul>
+                    {this.getTodoList()}
                 </div>
             </div>
         )
