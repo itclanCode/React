@@ -9,6 +9,8 @@
  * */
 import React from 'react';
 import TodoItem from './TodoItem';
+
+import './todoItem.css';
 class TodoList extends React.Component {
     constructor(props){
         super(props);
@@ -49,20 +51,16 @@ class TodoList extends React.Component {
     }
     getTodoList () {
         return (
-            <ul>
-                {
-                    this.state.list.map((item, index) => {
-                        return(
-                            <TodoItem deleteItem={this.handleDelete}
-                                      content={item}
-                                      key={index}
-                                      index={index}
-                            />
-                        )
-                        // return <li key={index} onClick={this.handleItemDelete.bind(this)}>{item}</li>
-                    })
-                }
-            </ul>
+            this.state.list.map((item, index) => {
+            return(
+                <TodoItem deleteItem={this.handleDelete}
+                          content={item}
+                          key={index}
+                          index={index}
+                />
+            )
+            // return <li key={index} onClick={this.handleItemDelete.bind(this)}>{item}</li>
+            })
         )
     }
     // 父组件通过属性的形式向子组件传递参数
@@ -71,11 +69,13 @@ class TodoList extends React.Component {
         return (
             <div>
                 <div>
-                    <input  value={this.state.inputValue} onChange={this.handleInputChange} />
-                    <button onClick={this.handleBtnClick}>add</button>
+                    <input  className="todoInput"   value={this.state.inputValue} onChange={this.handleInputChange} />
+                    <button style={{background:'red', color:'#fff'}} onClick={this.handleBtnClick}>add</button>
                 </div>
                 <div>
-                    {this.getTodoList()}
+                    <ul>
+                        {this.getTodoList()}
+                    </ul>
                 </div>
             </div>
         )
