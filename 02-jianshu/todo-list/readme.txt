@@ -1,7 +1,6 @@
 ├─.gitignore
 ├─package-lock.json
 ├─package.json
-├─README.md
 ├─组件图.png
 ├─src
 |  ├─App.js
@@ -17,4 +16,4 @@
 |   ├─vcs.xml
 |   ├─workspace.xml
 |   ├─inspectionProfiles
-|   |         └Project_Default.xmlThis project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+|   |         └Project_Default.xml
