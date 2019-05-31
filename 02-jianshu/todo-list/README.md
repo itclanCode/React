@@ -1,6 +1,4 @@
 ```
-
-E:\React\React\02-jianshu\todo-list
 ├─.gitignore
 ├─package-lock.json
 ├─package.json
