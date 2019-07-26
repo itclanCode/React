@@ -1,4 +1,5 @@
 import React, { Fragment, Component } from 'react';
+import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 
 import { 
@@ -13,17 +14,17 @@ import {
 } from './style';
 
 class Header extends Component {
-    constructor(props) {
-        super(props);
+    // constructor(props) {
+    //     super(props);
 
-        this.state = {
-            focused: false
-        }
+    //     // this.state = {
+    //     //     focused: false
+    //     // }
 
-        this.handleInputFocus = this.handleInputFocus.bind(this);
-        this.handleInputBlur = this.handleInputBlur.bind(this);
+    //     this.handleInputFocus = this.handleInputFocus.bind(this);
+    //     this.handleInputBlur = this.handleInputBlur.bind(this);
 
-    }
+    // }
 
    
 
@@ -41,16 +42,16 @@ class Header extends Component {
                         <NavItem className = "right">登录</NavItem>
                         <SearchWrapper>
                             <CSSTransition
-                                in = { this.state.focused }
+                                in = { this.props.focused }
                                 timeout = { 200 }
                                 classNames = "slide"
                             >
                                 <div>
-                                    <NavSearch className = { this.state.focused ? 'focused': ''} 
-                                            onFocus = { this.handleInputFocus }
-                                            onBlur = { this.handleInputBlur }
+                                    <NavSearch className = { this.props.focused ? 'focused': ''} 
+                                            onFocus = { this.props.handleInputFocus }
+                                            onBlur = { this.props.handleInputBlur }
                                     ></NavSearch>
-                                    <span  className = { this.state.focused ? 'focused iconfont': 'iconfont'}>&#xe638;</span> 
+                                    <span  className = { this.props.focused ? 'focused iconfont': 'iconfont'}>&#xe638;</span> 
                                 </div>
                             </CSSTransition>   
                         </SearchWrapper>
@@ -68,17 +69,43 @@ class Header extends Component {
         );
     }
 
-    handleInputFocus() {
-        this.setState({
-            focused: true
-        })
-    }
+    // handleInputFocus() {
+    //     this.setState({
+    //         focused: true
+    //     })
+    // }
 
-    handleInputBlur() {
-        this.setState({
-            focused: false
-        })
+    // handleInputBlur() {
+    //     this.setState({
+    //         focused: false
+    //     })
+    // }
+}
+
+const mapStateToProps = (state) => {
+    return {
+        focused: state.header.focused
     }
 }
 
-export default Header;
+const mapDispathToProps = (dispatch) => {
+    return {
+        handleInputFocus() {
+            const action = {
+                type: 'search_focus'
+            };
+            dispatch(action);
+        },
+
+        handleInputBlur() {
+            const action = {
+                type: 'search_blur'
+            };
+            dispatch(action);
+           
+        }
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispathToProps)(Header);
