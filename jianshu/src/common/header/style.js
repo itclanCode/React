@@ -113,7 +113,7 @@ export const Button = styled.div `
       color: #ec6149;
   }
   &.writting {
-      color: #fff;
+      color: #ec6149;
   }
 `;
 
@@ -137,6 +137,15 @@ export const SearchInfoTitle = styled.div`
 export const SearchInfoSwitch = styled.span`
     float: right;
     font-size: 13px;
+    cursor:pointer;
+    .spin {
+       font-size: 12px;
+       margin-right: 5px;
+       transition: all 0.2s ease-in;
+       diplay: block;
+       float: left;
+       transform-origin: center center;
+    }
 `;
 
 export const SearchInfoItem = styled.a`
@@ -162,7 +171,7 @@ export const SearchWrapper = styled.div`
    float: left;
    position: relative;
 
-   .iconfont {
+   .zoom {
       position: absolute;
       right: 10px;
       bottom: 5px;
