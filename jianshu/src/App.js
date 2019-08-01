@@ -1,6 +1,9 @@
 import React, { Fragment, Component } from 'react';
 import Header from './common/header';
+import Home from './pages/home';
+import Detail from './pages/detail';
 import { Provider } from 'react-redux';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import store from './store';         // 引入store
 
 import { GlobalStyle } from './style';
@@ -14,7 +17,20 @@ class App extends Component {
                   <GlobalStyle />
                   <GlobalIcon />
                   < Provider store = { store }>
-                     <Header />
+                      <div>
+                          <Header />
+                          <BrowserRouter>
+                              <Switch>
+                                  {/*<Route path = '/' exact  render = {() => <div>home</div>}></Route>*/}
+                                  {/*<Route path = '/itclan' exact render = {() => <div>itclan</div>}></Route>*/}
+
+                                  <Route path = '/' exact  component={ Home }></Route>
+                                  <Route path = '/detail' exact component={ Detail }></Route>
+                              </Switch>
+
+                          </BrowserRouter>
+                      </div>
+
                   </Provider>
              </Fragment>
          );
