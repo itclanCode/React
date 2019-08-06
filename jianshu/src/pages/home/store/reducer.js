@@ -20,6 +20,29 @@ const defaultState =  fromJS({
             desc: "前段时间，素来与“流量”、“热搜”这些流行文化毫无关系的陈道明突然上了热搜，此次登上热搜榜的原因，竟是因为“满头白发”。 原来，作为影协主要负责...",
             imgUrl: "https://upload-images.jianshu.io/upload_images/14936567-600cca4c69274877?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240"
         }
+    ],
+    recommendList: [
+      {
+        id: 1,
+        desc: "简书会员",
+        imgUrl: "https://cdn2.jianshu.io/assets/web/banner-s-club-aa8bdf19f8cf729a759da42e4a96f366.png"
+      },
+      {
+        id: 2,
+        desc: "优选连载",
+        imgUrl: "https://cdn2.jianshu.io/assets/web/banner-s-7-1a0222c91694a1f38e610be4bf9669be.png"
+      },
+      {
+        id: 3,
+        desc: "简书版权",
+        imgUrl: "https://cdn2.jianshu.io/assets/web/banner-s-7-1a0222c91694a1f38e610be4bf9669be.png"
+      },
+      {
+        id: 4,
+        desc: "简书大学堂",
+        imgUrl: "https://cdn2.jianshu.io/assets/web/banner-s-7-1a0222c91694a1f38e610be4bf9669be.png"
+      }
+
     ]
 });
 
