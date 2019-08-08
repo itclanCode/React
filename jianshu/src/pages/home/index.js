@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { HomeWrapper } from './style';
 import { HomeLeft } from './style';
 import { HomeRight } from './style';
@@ -6,6 +7,8 @@ import Topic from './components/Topic';
 import List from  './components/List';
 import Recomment from  './components/Recomments';
 import Writer from './components/Writer';
+// import axios from 'axios';
+import { actionCreators } from './store';
 
 class Home extends Component {
 
@@ -24,6 +27,17 @@ class Home extends Component {
             </HomeWrapper>
         );
     }
+    // 当页面挂载完毕,去请求数据
+    componentDidMount() {
+        this.props.changeHomeData();
+    }
 }
 
-export default Home;
+const mapDispatch = (dispatch) => ({
+    changeHomeData() {  // 去掉圆括号里面的action
+        const action = actionCreators.getHomeInfo();
+        dispatch(action);
+    }
+});
+
+export default connect(null, mapDispatch)(Home);
