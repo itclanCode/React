@@ -18,8 +18,8 @@ class App extends Component {
                   <GlobalIcon />
                   < Provider store = { store }>
                       <div>
-                          <Header />
                           <BrowserRouter>
+                              <Header />
                               <Switch>
                                   {/*<Route path = '/' exact  render = {() => <div>home</div>}></Route>*/}
                                   {/*<Route path = '/itclan' exact render = {() => <div>itclan</div>}></Route>*/}

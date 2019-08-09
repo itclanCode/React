@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ListItem, ListInfo, LoadMore } from '../style';
 import { connect } from 'react-redux';
 import { actionCreators } from '../store';
-
+import { Link } from "react-router-dom";
 
 class List extends Component {
 
@@ -13,6 +13,7 @@ class List extends Component {
                 {
                     list.map((item,index) => {
                        return (
+                         <Link to="/detail">
                            <ListItem key = { index } >
                                <img className = "pic" src={ item.get('imgUrl')} alt=""/>
                                <ListInfo>
@@ -22,6 +23,7 @@ class List extends Component {
                                    </p>
                                </ListInfo>
                            </ListItem>
+                          </Link>
                        );
                     })
                 }
