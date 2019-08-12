@@ -13,7 +13,7 @@ class List extends Component {
                 {
                     list.map((item,index) => {
                        return (
-                         <Link to="/detail">
+                         <Link to={'/detail/' + item.get('id')}>
                            <ListItem key = { index } >
                                <img className = "pic" src={ item.get('imgUrl')} alt=""/>
                                <ListInfo>
