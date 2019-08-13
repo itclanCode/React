@@ -116,10 +116,12 @@ class Header extends Component {
                         
                     </Nav>
                     <Addition>
-                        <Button className='writting'>
-                            <span className = "iconfont icon-write">&#xe608;</span>
-                            写文章
-                        </Button>
+                        <Link to='/Write'> 
+                            <Button className='writting'>
+                                <span className = "iconfont icon-write">&#xe608;</span>
+                                写文章
+                            </Button>
+                        </Link>    
                         <Button className='reg'>注册</Button>
                     </Addition>
                </HeaderWrapper>
